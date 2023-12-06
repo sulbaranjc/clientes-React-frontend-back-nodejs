@@ -13,7 +13,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 // import { useState } from 'react';
 
-const NUM_OF_ITEMS = 10;
+const NUM_OF_ITEMS = 8;
 
 
 // escoger el servidor a usar
@@ -135,13 +135,13 @@ const modificarAlumno = async(e) => {
           <Form className="d-flex m-1">
             <Form.Control
               type="search"
+              id="search"
               placeholder="Search"
               className="me-2 ms-1"
               aria-label="Search"
               value={search}
               onChange={handleSearch}
             />
-            <Button variant="outline-success">Search</Button>
           </Form>
           <Pagination size="lg" className=' mt-2 ms-2 d-flex flex-row' >
             {/* <Pagination.Item>{}</Pagination.Item>  
@@ -171,13 +171,13 @@ const modificarAlumno = async(e) => {
                   
                   filteredUser.map(fila => (
                     <tr key={fila.client_id}>
-                      <td class="align-middle">
+                      <td className="align-middle">
                         <Button className='me-centre' 
                           variant="warning" size="sm" onClick={()=>activarModificacion(fila.client_id)}>
                             <ion-icon name="create-outline"></ion-icon>
                         </Button>
                       </td>
-                      <td class="align-middle">
+                      <td className="align-middle">
                         <Button variant="danger"
                         onClick={()=> delClient(fila.client_id)}  
                         size="sm"><ion-icon name="trash-outline"></ion-icon>
@@ -205,6 +205,7 @@ const modificarAlumno = async(e) => {
             <Form.Group className="mb-3" controlId="Name">
               <Form.Label>Nombre</Form.Label>
               <Form.Control type="text" placeholder="Nombres" 
+              autoComplete='off'
               onChange={(e)=>setFirst_name(e.target.value)}
               value={first_name}
               />
